@@ -1,0 +1,27 @@
+<title><%= @page_title = "All Routes" %></title>
+<div class="subjects index">
+  <h2>Routes</h2>
+
+  <%= image_tag('plus_sign.png', :size => '11x11', :alt => '+')%>
+  <%= link_to("Add New Route", new_route_path, :class => 'action new') %>
+
+  <table class="listing" summary="Subject list">
+    <tr class="header">
+      <th>Source</th>
+      <th>Destination</th>
+      <th>Fare</th>
+    </tr>
+    <% @routes.each do |route| %>
+    <tr>
+      <td><%= route.source.name %></td>
+      <td><%= route.dest.name %></td>
+      <td><%= route.fare %></td>
+      <td class="actions">
+        <%= link_to("Show", route_path(route), :class => 'action show') %>
+        <%= link_to("Edit", edit_route_path(route), :class => 'action edit') %>
+        <%= link_to("Delete", route, data: { confirm: "Are you sure to delete this route?" }, :method => :delete, :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>

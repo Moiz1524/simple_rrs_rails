@@ -1,0 +1,14 @@
+<table summary="Subject form fields">
+      <tr>
+        <th>Source</th>
+        <td><%= f.select(:source_id, City.all.collect{ |c| [c.name, c.id] }, { include_blank: "Select One" }) %></td>
+      </tr>
+      <tr>
+        <th>Destination</th>
+        <td><%= f.select(:dest_id, City.all.collect{ |c| [c.name, c.id] }, { include_blank: "Select One" }) %></td>
+      </tr>
+      <tr>
+        <th>Fare</th>
+        <td><%= f.number_field(:fare) %></td>
+      </tr>
+</table>

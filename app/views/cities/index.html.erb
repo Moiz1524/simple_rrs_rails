@@ -1,0 +1,25 @@
+<title><%= @page_title = "All Cities" %></title>
+<div class="subjects index">
+  <h2>Cities</h2>
+
+  <%= image_tag('plus_sign.png', :size => '11x11', :alt => '+')%>
+  <%= link_to("Add New City", new_city_path, :class => 'action new') %>
+
+  <table class="listing" summary="Subject list">
+    <tr class="header">
+      <th>Name</th>
+    </tr>
+    <% @cities.each do |city| %>
+    <tr>
+      <td><%= city.name %></td>
+      <td class="actions">
+        <%= link_to("Show", city_path(city), :class => 'action show') %>
+        <%= link_to("Edit", edit_city_path(city), :class => 'action edit') %>
+        <%= link_to("Delete", delete_city_path(city), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
+<%#= link_to("Logout", destroy_admin_session_path, data: { confirm: "Are you sure to Logout ?" }, method: :delete) %>

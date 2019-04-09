@@ -1,0 +1,9 @@
+<%= form_for(@travel) do |f| %>
+   
+   <%= render(:partial => 'form', :locals => { :f => f }) %>
+    
+    <div class="form-buttons">
+      <%= f.submit("Create Travel") %>
+    </div>
+    
+<% end %>

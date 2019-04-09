@@ -1,0 +1,29 @@
+<%= link_to(" | Back to List", trains_path, :class => 'back-link') %>
+
+<div class="subjects show">
+  <h2>Show Train</h2>
+
+  <table summary="Subject detail view">
+    <tr>
+      <th>Image</th>
+      <td><%= image_tag(@train.avatar.url) %></td>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <td><%= @train.name %></td>
+    </tr>
+    <tr>
+      <th>Capacity</th>
+      <td><%= @train.t_capacity %></td>
+    </tr>
+     <tr>
+      <th>Compartments</th>
+      <td><% @train.compartments.each do |c| %>
+        <ul>
+          <li><%= c.name %></li>
+        </ul>
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>

@@ -1,0 +1,11 @@
+<%= form_for(@ticket) do |f| %>
+   
+   <%= render(:partial => 'form', :locals => { :f => f }) %>
+    
+    <div class="form-buttons">
+      <%= f.submit("Create Ticket") %>
+    </div>
+    
+<% end %>
+
+<%#= link_to("Logout", destroy_user_session_path, method: :delete) %>

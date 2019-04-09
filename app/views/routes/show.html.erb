@@ -1,0 +1,19 @@
+<%= link_to("<< Back to List", routes_path, :class => 'back-link') %>
+
+<div class="subjects show">
+  <h2>Show Route</h2>
+  <table summary="Subject detail view">
+    <tr>
+      <th>Source</th>
+      <td><%= @route.source.name %></td>
+    </tr>
+    <tr>
+      <th>Capacity</th>
+      <td><%= @route.dest.name %></td>
+    </tr>
+    <tr>
+      <th>Fare</th>
+      <td><%= @route.fare %></td>
+    </tr>
+  </table>
+</div>

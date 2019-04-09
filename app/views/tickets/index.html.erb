@@ -1,0 +1,27 @@
+<title><%= @page_title = "All Tickets" %></title>
+<div class="subjects index">
+  <h2>Tickets</h2>
+
+  <%= image_tag('plus_sign.png', :size => '11x11', :alt => '+')%>
+
+  <table class="listing" summary="Subject list">
+    <tr class="header">
+      <th>Ticket ID</th>
+      <th>Travel</th>
+      <th>Train</th>
+    </tr>
+    <% @tickets.each do |ticket| %>
+    <tr>
+      <td><%= ticket.id %></td>
+      <td><%= ticket.travel.route.route_name %></td>
+      <td><%= ticket.travel.train.name %></td>
+      <td class="actions">
+        <%= link_to("Show", ticket_path(ticket), :class => 'action show') %>
+        <%= link_to("Edit", edit_ticket_path(ticket), :class => 'action edit') %>
+        <%= link_to("Delete", ticket, data: { confirm: "Are you sure to delete this ticket?" }, method: :delete ,:class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+

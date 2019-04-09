@@ -1,0 +1,7 @@
+<% if user_signed_in? %>
+        <%= link_to("Home", home_path) %>   |   <%= link_to("Tickets", tickets_path) %>   |   <%= link_to("Logout", destroy_user_session_path, method: :delete) %>
+<% elsif admin_signed_in? %>
+        <%= link_to("Trains", trains_path) %>   |   <%= link_to("Travels", travels_path) %>   |   <%= link_to("Routes", routes_path) %>   |   <%= link_to("Cities", cities_path) %>   |   <%= link_to("Logout", destroy_admin_session_path, method: :delete) %>
+<% else %>
+    
+<% end %>

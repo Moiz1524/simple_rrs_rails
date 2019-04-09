@@ -1,0 +1,14 @@
+<table summary="Subject form fields">
+      <tr>
+        <th>Name</th>
+        <td><%= f.text_field(:name) %></td>
+      </tr>
+      <tr>
+        <th>Add Compartments</th>
+        <td><%= f.collection_select(:compartment_ids, Compartment.order(:name), :id, :name, { include_blank: false }, { multiple: true }) %></td>
+      </tr>
+      <tr>
+        <th>Add Image</th>
+        <td><%= f.file_field :avatar %></td>
+      </tr>
+</table>

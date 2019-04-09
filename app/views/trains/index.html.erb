@@ -1,0 +1,26 @@
+<title><%= @page_title = "All Trains" %></title>
+<div class="subjects index">
+  <h2>Trains</h2>
+
+  <%= image_tag('plus_sign.png', :size => '11x11', :alt => '+')%>
+  <%= link_to("Add New Train", new_train_path, :class => 'action new') %>
+
+  <table class="listing" summary="Subject list">
+    <tr class="header">
+      <th>Train</th>
+      <th>Total Capacity</th>
+    </tr>
+    <% @trains.each do |train| %>
+    <tr>
+      <td><%= train.name %></td>
+      <td><%= train.t_capacity %></td>
+      <td class="actions">
+        <%= link_to("Show", train_path(train), :class => 'action show') %>
+        <%= link_to("Edit", edit_train_path(train), :class => 'action edit') %>
+        <%= link_to("Delete", delete_train_path(train), :class => 'action delete') %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+

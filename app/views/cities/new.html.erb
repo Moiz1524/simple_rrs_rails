@@ -1,0 +1,9 @@
+<%= form_for(@city) do |f| %>
+   
+   <%= render(:partial => 'form', :locals => { :f => f }) %>
+    
+    <div class="form-buttons">
+      <%= f.submit("Create City") %>
+    </div>
+    
+<% end %>

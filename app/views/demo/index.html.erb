@@ -1,0 +1,16 @@
+<h1>Welcome to Railway Reservation System</h1>
+<h3>Authenticate Yourself</h3><br>
+<% if !admin_signed_in? %>
+<%#= link_to("Signup as Admin", new_admin_registration_path) %>
+    <%= link_to("Login as Admin", new_admin_session_path) %><br>
+<% else %>
+    <p>You are already logged in as admin!.</p>
+<% end %>
+
+<% if !user_signed_in? %>
+    <%= link_to("Signup as User", new_user_registration_path) %><br>
+    <%= link_to("Login as User", new_user_session_path) %><br><br>
+<% else %>
+    <p>You are already logged in as user!.</p>
+<% end %>
+    

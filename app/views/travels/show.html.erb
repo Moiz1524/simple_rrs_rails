@@ -1,0 +1,39 @@
+<%= link_to("<< Back to List", travels_path, :class => 'back-link') %>
+
+<div class="subjects show">
+  <h2>Show Travel</h2>
+  <table summary="Subject detail view">
+    <tr>
+      <th>Route Name</th>
+      <td><%= @travel.route.route_name %></td>
+    </tr>
+    <tr>
+      <th>Train</th>
+      <td><%= @travel.train.name %></td>
+    </tr>
+     <tr>
+      <th>Total seats</th>
+      <td><%= @travel.total_seats %></td>
+    </tr>
+    <tr>
+      <th>Available seats</th>
+      <td><%= @travel.ava_seats %></td>
+    </tr>
+    <tr>
+      <th>Confirmed Tickets</th>
+      <td><%= @t_count %></td>
+      <td>
+        <% @tickets.each do |ticket| %>
+           <tr>
+              <th>Ticket ID</th>
+              <td><%= ticket.id %></td>
+          </tr>
+          <tr>
+              <th>User Email</th>
+              <td><%= ticket.user.email %></td>
+          </tr>   
+        <% end %>
+      </td>
+    </tr>
+  </table>
+</div>

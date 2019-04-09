@@ -1,0 +1,6 @@
+<table summary="Subject form fields">
+      <tr>
+        <th>Select Travel</th>
+        <td><%= f.select(:travel_id, Travel.all.collect{ |t| [t.route.route_name, t.id] }, { include_blank: "Select One" }) %></td>
+      </tr>
+</table>

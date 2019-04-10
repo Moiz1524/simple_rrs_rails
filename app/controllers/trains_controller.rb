@@ -26,6 +26,11 @@ class TrainsController < ApplicationController
     def update
         @train = Train.find(params[:id])
         if @train.update_attributes(train_params)
+            @train.t_capacity = 0
+            @train.compartments.each do |c|
+                @train.t_capacity = @train.t_capacity + c.capacity
+            end
+            @train.save
             redirect_to(trains_path)
         else
             render 'edit'

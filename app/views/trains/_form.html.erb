@@ -1,4 +1,5 @@
-<table summary="Subject form fields">
+<%= form_for(@train, remote: true) do |f| %>
+   <table summary="Subject form fields">
       <tr>
         <th>Name</th>
         <td><%= f.text_field(:name) %></td>
@@ -11,4 +12,10 @@
         <th>Add Image</th>
         <td><%= f.file_field :avatar %></td>
       </tr>
-</table>
+  </table>
+    
+    <div class="form-buttons">
+      <%= f.submit("Create Train") %>
+    </div> 
+    
+<% end %>

@@ -6,6 +6,6 @@ class AddTravelIdToTicket < ActiveRecord::Migration
   
   def down
     remove_column "tickets", "travel_id"
-  end
+  end 
   
 end

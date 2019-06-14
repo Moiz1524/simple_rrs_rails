@@ -1,2 +1,19 @@
-<h1>Tickets#edit</h1>
-<p>Find me in app/views/tickets/edit.html.erb</p>
+<%= form_for(@ticket) do |f| %>
+   <table summary="Subject form fields">
+      <tr>
+        <th>Select Travel</th>
+        <td><%= f.select(:travel_id, Travel.all.collect{ |t| [t.route.route_name, t.id] }, { include_blank: "Select One" }) %></td>
+      </tr>
+      <tr>
+        <th>Select Start Time</th>
+        <td><%= f.select(:start_time, options_for_select(@intervals_array), selected: "#{@intervals_array.first}") %></td>
+      </tr>
+      <tr>
+        <th>Select End Time</th>
+        <td><%= f.select(:end_time, options_for_select(@intervals_array, selected: "#{@intervals_array.last}")) %></td>
+      </tr>
+    </table>
+    <div class="form-buttons">
+      <%= f.submit("Update Ticket") %>
+    </div>
+<% end %>

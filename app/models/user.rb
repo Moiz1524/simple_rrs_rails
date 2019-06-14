@@ -5,4 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
          
   has_many :tickets
+  
+  def username
+    return email.split('@')[0].capitalize
+  end
 end

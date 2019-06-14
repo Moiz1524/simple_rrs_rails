@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  get 'messages/create'
+  get 'pages/home'
+  resources :notifications
   # get 'tickets/index'
 
   # get 'tickets/new'
@@ -20,11 +23,13 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'demo#index'
+  root 'pages#home'
 
   devise_for :admins, controllers: { registrations: 'admins/registrations',sessions: 'admins/sessions' }
   devise_for :users, controllers: { registrations: 'users/registrations', sessions: 'users/sessions' }
 
+  post 'messages', to: 'messages#create'
+  
   get 'home', to: 'home#index', as: 'home' 
   
   

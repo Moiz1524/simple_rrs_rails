@@ -25,6 +25,14 @@
       <td><%= @ticket.travel.route.route_name %></td>
     </tr>
     <tr>
+      <th>Time Intervals</th>
+      <td>
+        <% @intervals_array.each do |i| %>
+          <%= i %><br>
+        <% end %>
+      </td>
+    </tr>
+    <tr>
       <th>Travel Capacity</th>
       <td><%= @ticket.travel.train.t_capacity %></td>
     </tr>

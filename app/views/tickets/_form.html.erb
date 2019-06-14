@@ -3,4 +3,12 @@
         <th>Select Travel</th>
         <td><%= f.select(:travel_id, Travel.all.collect{ |t| [t.route.route_name, t.id] }, { include_blank: "Select One" }) %></td>
       </tr>
+      <tr>
+        <th>Select Start Time</th>
+        <td><%= f.datetime_select(:start_time, :default => {:hour => 12, :minute => 00}, ampm: true) %></td>
+      </tr>
+      <tr>
+        <th>Select End Time</th>
+        <td><%= f.datetime_select(:end_time, :default => {:hour => 12, :minute => 00}, ampm: true) %></td>
+      </tr>
 </table>

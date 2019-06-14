@@ -5,12 +5,13 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <%= action_cable_meta_tag %>
 </head>
 <body>
  
 <!-- header -->
   <%# if user_signed_in? %>
-    <%= render(:partial => 'application/header') %>
+    <%= render("layouts/navbar") %>
   <%# end %>
   
     
@@ -21,9 +22,9 @@
     <%#= render(:partial => 'application/footer') %>
   <%# end %>
 
-
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+
 
 </body>
 </html>

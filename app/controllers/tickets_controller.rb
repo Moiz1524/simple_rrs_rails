@@ -1,10 +1,11 @@
 class TicketsController < ApplicationController
   
+  include Pagy::Backend
   before_action :authenticate_user!
   #before_action :authenticate_admin!, only: [:index, :edit, :update, :destroy, :show]
   
   def index
-    @tickets = Ticket.all
+    @pagy , @tickets = pagy(Ticket.all, items: 10)
   end
 
   def new
@@ -33,6 +34,10 @@ class TicketsController < ApplicationController
 
   def edit
     @ticket = Ticket.find(params[:id])
+    @intervals_array = Array.new
+    (@ticket.start_time.to_datetime.to_i .. @ticket.end_time.to_datetime.to_i).step(30.minutes) do |date|
+      @intervals_array.push Time.at(date)
+    end
   end
 
   def update
@@ -48,6 +53,10 @@ class TicketsController < ApplicationController
   def show
     @ticket = Ticket.find(params[:id])
     @travel = @ticket.travel
+    @intervals_array = Array.new
+    (@ticket.start_time.to_datetime.to_i .. @ticket.end_time.to_datetime.to_i).step(30.minutes) do |date|
+      @intervals_array.push Time.at(date)
+    end
   end
 
   def destroy 
@@ -67,6 +76,6 @@ class TicketsController < ApplicationController
   private
   
   def ticket_params
-    params.require(:ticket).permit(:price, :travel_id, :user_id)
+    params.require(:ticket).permit(:price, :travel_id, :user_id, :start_time, :end_time)
   end
 end

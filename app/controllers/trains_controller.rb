@@ -14,11 +14,14 @@ class TrainsController < ApplicationController
         @train.compartments.each do |c|
            @train.t_capacity = @train.t_capacity + c.capacity 
         end
-        if @train.save
-            redirect_to(train_path(@train))
-        else
-            render 'new'
-        end
+         respond_to do |format|
+            if @train.save
+            #   format.html { redirect_to(train_path(@train)) }
+              format.js
+            else
+              render 'new'
+            end
+      end
     end
     def edit
         @train = Train.find(params[:id])

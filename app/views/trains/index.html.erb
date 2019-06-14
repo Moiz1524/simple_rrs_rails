@@ -3,9 +3,9 @@
   <h2>Trains</h2>
 
   <%= image_tag('plus_sign.png', :size => '11x11', :alt => '+')%>
-  <%= link_to("Add New Train", new_train_path, :class => 'action new') %>
+  <%= link_to("Add New Train", new_train_path, :class => 'action new', id: "new_link", remote: true ) %>
 
-  <table class="listing" summary="Subject list">
+  <table class="listing" summary="Subject list" id="trains_list">
     <tr class="header">
       <th>Train</th>
       <th>Total Capacity</th>

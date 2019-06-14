@@ -9,11 +9,9 @@ class CitiesController < ApplicationController
     
     def create
         @city = City.new(city_params)
-        if @city.save
-            redirect_to(cities_path)
-        else
-            render 'new'
-        end
+        @city.save!
+        datetime = @city.created_at
+        HardWorker.perform_at(1.minute.datetime, 'Test', 1)
     end
     
     def edit

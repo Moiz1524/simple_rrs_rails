@@ -112,7 +112,7 @@ GEM
     pagy (3.2.1)
     pg (0.21.0)
     popper_js (1.14.5)
-    puma (3.12.1)
+    puma (3.12.3)
     rack (2.0.7)
     rack-protection (2.0.5)
       rack
@@ -231,7 +231,7 @@ DEPENDENCIES
   pagy
   pg (~> 0.18)
   popper_js
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.2, >= 5.2.3)
   redis
   sass-rails (~> 5.0)
